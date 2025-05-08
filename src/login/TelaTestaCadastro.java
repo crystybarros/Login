@@ -10,6 +10,5 @@ public class TelaTestaCadastro {
         
         //Método de chamada do método construtor e abertura de tela
         t.abreTela();
-    }
-    
+    }    
 }

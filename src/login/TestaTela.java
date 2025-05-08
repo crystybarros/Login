@@ -9,6 +9,5 @@ public class TestaTela extends JFrame {
            TelaLogin t = new TelaLogin();
            
            t.abreTela();
-    }
-    
+    }    
 }

@@ -6,7 +6,6 @@ import java.sql.SQLException; //Tratar as exceções no banco de dados
 
 
 
-
 public class Usuario {
     //criação dos atributos privados da classe
     private String usuario;

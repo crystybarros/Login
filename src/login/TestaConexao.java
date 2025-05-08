@@ -14,6 +14,5 @@ public class TestaConexao {
         } catch (InterruptedException ex){
             System.out.println ("Houve algum problema no teste de conexão. " + ex.getMessage());
         }
-    }
-    
+    }    
 }

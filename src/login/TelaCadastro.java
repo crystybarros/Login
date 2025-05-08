@@ -6,7 +6,6 @@ package login;
 
 
 
-
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.SystemColor;
