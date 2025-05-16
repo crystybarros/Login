@@ -165,8 +165,9 @@ public class Usuario {
             banco.stmt = banco.con.createStatement();
             
             //Executandoa alteração no banco de dados
-            banco.stmt.execute ("UPDATE usuario SET nome = '" + nome +
-            				    "', senha = md5 '" + senha + "' WHERE usuario = '" + usuario + "'");
+            banco.stmt.execute ("UPDATE usuario SET nome = '" + nome + "', senha = md5('" + senha + "') WHERE usuario = '" + usuario + "'");
+            resultAlteracao = true;
+            
         }catch (SQLException ec){
             System.out.println("Erro ao atualizar usuário " + ec.getMessage());
             resultAlteracao = false;
