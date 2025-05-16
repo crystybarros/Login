@@ -95,6 +95,12 @@ public class TelaCadastro  extends JFrame{
         tela.add (btnCancelar);
         
     
+    btnCancelar.addActionListener((ActionEvent e) -> {
+        TelaLogin tLogin = new TelaLogin();
+        tLogin.setVisible(true);
+        dispose();
+    }); 
+
     
     //Ação do botão cadastrar usuario na base de dados
     btnCadastrar.addActionListener ((ActionEvent e) -> {
@@ -108,17 +114,22 @@ public class TelaCadastro  extends JFrame{
         usu.setSenha (passSenha.getText());
         
         //validações de preechimento dos dados
-        if("".equals(usu.getUsuario())){
-            mensagemJOption = "Campo nome do usuário precida ser informado!";
+        if("".equals(usu.getNome())){   //estava getUsuario
+            mensagemJOption = "Campo nome do usuário precisa ser informado!";
             mensagemTipo = 0;
+            
         }else if("".equals(usu.getUsuario())){
             mensagemJOption = "Campo usuário precisa ser informado";
+            mensagemTipo = 0;
+            
         }else if("".equals(usu.getSenha())){
             mensagemJOption = "Campo senha precisa ser informado!";
             mensagemTipo = 0;
+            
         }else if(!usu.getSenha().equals(passConfSenha.getText())){
             mensagemJOption = "Campos senha e confirmação de senha não coincidem!";
             mensagemTipo = 0;
+            
         }else {
             //verifico se somente o usuário consta no banco
             //neste caso, faremos uma sobrecarga de método
@@ -128,6 +139,7 @@ public class TelaCadastro  extends JFrame{
                 //caso exista, não pode ser colocado na base
                 mensagemJOption = "Usuário já existente na base de dados.";
                 mensagemTipo = 0;
+                
             }else {
                 cadastroValido = usu.cadastraUsuario(usu.getNome(), 
                                                     usu.getUsuario(), 
@@ -162,12 +174,8 @@ public class TelaCadastro  extends JFrame{
                         + ec.getMessage()); 
     } 
 });
-        
-    btnCancelar.addActionListener((ActionEvent e) -> {
-    TelaLogin tLogin = new TelaLogin();
-    dispose();
-    }); 
-}
+}     
+    
     
     public void abreTela(){
         TelaCadastro panelCadastro = new TelaCadastro();

@@ -21,19 +21,19 @@ public class Conexao {
     public Connection abrirConexao(){
         try {
             Class.forName(driver);
-            this.con = DriverManager.getConnection(servidor, usuario, senha);
-            this.stmt = this.con.createStatement();
+            con = DriverManager.getConnection(servidor, usuario, senha);
+            stmt = con.createStatement();
             System.out.println("Conexão aberta com sucesso");
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Erro ao acessar banco de dados, verifique! " + e.getMessage());
         }
-        return this.con;
+        return con;
     }   
 
 
     public void fecharConexao () {
         try {
-            this.con.close();
+            con.close();
             System.out.println("Conexão finalizada com sucesso");
         }catch (SQLException e){
             System.out.println("Erro ao encerrar conexão " + e.getMessage());

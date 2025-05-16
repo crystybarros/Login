@@ -1,10 +1,6 @@
 package login;
 
 
-
-
-
-
 import java.awt.Font; //trabalhar com fontes
 import java.awt.SystemColor; //trabalhar com cores
 import java.awt.event.ActionEvent; //trabalhar com evento
@@ -46,7 +42,7 @@ public TelaLogin(){
         
         //define posionamento e tamanho
         //         x    y  width height
-        setBounds(500, 200, 400, 300);
+        setBounds(500, 200, 426, 212);
         
         //Crio um objeto JPanel e atribuo ele a variável tela
         panelTela = new JPanel();     
@@ -63,7 +59,7 @@ public TelaLogin(){
         JLabel lblIdentificacao = new JLabel("IDENTIFICAÇÃO"); 
         
         //Localização na tela
-        lblIdentificacao.setBounds(50, 0, 160, 39);
+        lblIdentificacao.setBounds(144, 0, 160, 39);
         
         //Definindo a Fonte
         lblIdentificacao.setFont(new Font("Arial", 3, 20));
@@ -73,11 +69,11 @@ public TelaLogin(){
         
         //Identificação e Posicionamento dos labels        
         JLabel lblUsuario = new JLabel("Usuario");
-        lblUsuario.setBounds(50, 65, 70, 15);
+        lblUsuario.setBounds(24, 65, 70, 15);
         panelTela.add(lblUsuario);
         
         JLabel lblSenha = new JLabel("Senha");
-        lblSenha.setBounds(50, 92, 70, 15);
+        lblSenha.setBounds(24, 92, 70, 15);
         panelTela.add(lblSenha);
         
         //Identificação e Posicionamento dos texts fields        
@@ -92,11 +88,11 @@ public TelaLogin(){
         
         //Identificação e Posicionamento dos botões
         JButton btnEntrar = new JButton("Entrar");
-        btnEntrar.setBounds(200, 150, 117, 25);
+        btnEntrar.setBounds(200, 136, 117, 25);
         panelTela.add(btnEntrar);  
         
         JButton btnCadastrar = new JButton("Cadastrar");
-        btnCadastrar.setBounds(50, 150, 117, 25);
+        btnCadastrar.setBounds(50, 136, 117, 25);
         panelTela.add(btnCadastrar);
                 
         //ação no botão de entrar no sistema
@@ -156,6 +152,13 @@ public TelaLogin(){
                 }   
             }                
         });
+        
+        btnCadastrar.addActionListener((ActionEvent e) -> { //faltava adicionar essa 
+			//Intanciando a classe TelaCadastro
+			TelaCadastro tCadastro = new TelaCadastro();
+			tCadastro.abreTela();
+			dispose();
+		});
     }
           
     public void abreTela(){
