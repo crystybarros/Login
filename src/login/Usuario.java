@@ -11,15 +11,16 @@ public class Usuario {
     private String usuario;
     private String nome;
     private String senha;
+    
     static String nomeUsuario;
     static String usuarioSistema;
-    
+    static boolean resultAlteracao; 
+    static boolean resultExclusao;
         
     //atributo que armazenará o retorno do banco de dados
     private boolean resultUsuario; 
     private boolean resultCadastro;
-    private boolean resultAlteracao; 
-    private boolean resultExclusao; 
+     
     
     //criação dos getters e setters
     public String getUsuario(){
@@ -60,7 +61,7 @@ public class Usuario {
            
            //executando a consulta no banco de dados
            banco.resultset = 
-                   banco.stmt.executeQuery("SELECT * FROM usuario" 
+                   banco.stmt.executeQuery("SELECT * FROM usuario "
                            + "WHERE usuario = '" + usuario + "'" 
                            + "AND senha = md5('" + senha + "')");
            
@@ -99,10 +100,13 @@ public class Usuario {
        
        try{
            //abro a conexão com o banco de dados
-           banco.stmt = banco.con.createStatement();
+           banco.abrirConexao();
+           
+           //criando parâmetro de retorno
+           banco.stmt = banco.con.createStatement(); // <- adicionei essa
            
            //Executando a consulta no banco de dados
-           banco.resultset = banco.stmt.executeQuery("SELECT * FROM usuraio "
+           banco.resultset = banco.stmt.executeQuery("SELECT * FROM usuario "
                                                     + "WHERE usuario = '" + usuario +"'");
            
            //verificando se existe retorno de dados no banco
@@ -134,7 +138,6 @@ public class Usuario {
             //Abertura da conexão com o banco de dados
             banco.abrirConexao();
             
-            
             //Criando parâmetro de retorno
             banco.stmt = banco.con.createStatement();
             
@@ -148,7 +151,6 @@ public class Usuario {
             resultCadastro = false;
         }
         return resultCadastro;
-   
 }    
     
     //metodo para alteração dos dados em nosso sistema
@@ -156,14 +158,15 @@ public class Usuario {
         Conexao banco = new Conexao();
         
         try{
-            //abro a conexão com o banco de dados
+            //abre a conexão com o banco de dados
             banco.abrirConexao();
             
             //Criando o parâmetro de retorno
             banco.stmt = banco.con.createStatement();
             
             //Executandoa alteração no banco de dados
-            banco.stmt.execute ("UPDATE usuario SET nome = '" + usuario +"'");
+            banco.stmt.execute ("UPDATE usuario SET nome = '" + nome +
+            				    "', senha = md5 '" + senha + "' WHERE usuario = '" + usuario + "'");
         }catch (SQLException ec){
             System.out.println("Erro ao atualizar usuário " + ec.getMessage());
             resultAlteracao = false;

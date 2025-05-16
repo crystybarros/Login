@@ -19,15 +19,16 @@ public class TelaInicio extends JFrame{
         
         public TelaInicio(){
             
+            
             setLocationRelativeTo (null);
             setResizable (false);
             setTitle ("Menu - Fatec");
             
             setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-            setBounds (200,200,426,212);
+            setBounds (500,200,426,212);
             
             tela = new JPanel ();
-            tela.setBackground (SystemColor.gray);
+            tela.setBackground (SystemColor.cyan);
             setContentPane(tela);
             tela.setLayout (null);
             
@@ -108,6 +109,7 @@ public class TelaInicio extends JFrame{
                                    JOptionPane.ERROR_MESSAGE);
                            }
                    }
+                   
                    }catch (HeadlessException ec) {
                            System.out.println("Erro ao excluir usuário "
                                     + ec.getMessage());
