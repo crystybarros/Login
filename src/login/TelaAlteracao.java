@@ -1,4 +1,3 @@
-
 package login;
 
 import java.awt.Font;
@@ -28,7 +27,7 @@ public class TelaAlteracao extends JFrame {
         
         setLocationRelativeTo(null);
         setResizable (false);
-        setTitle ("Fatec - Alteração");
+        setTitle ("Alteração - Fatec São Roque");
         setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         setBounds(500, 200, 426, 212);
         
@@ -88,7 +87,7 @@ public class TelaAlteracao extends JFrame {
             TelaInicio telaIni = new TelaInicio();
             telaIni.setVisible(true);
             dispose ();            
-        });
+    });
         
         //Botão de alteração
         btnAlterar.addActionListener((ActionEvent e) -> {
@@ -143,14 +142,14 @@ public class TelaAlteracao extends JFrame {
                             JOptionPane.showMessageDialog(null, "Problemas ao atualizar o usuário", "Atenção", JOptionPane.ERROR_MESSAGE);
                         }
                     }
-                }catch (HeadlessException ec){
+            }catch (HeadlessException ec){
                     System.out.println("Erro ao alterar usuário " + ec.getMessage());    
-                }
+            }
         });
         
         //atribuir o atributo global ao objeto
         txtNome.setText(Usuario.nomeUsuario);
-    }
+        }
     
     public void abreTela(){
         TelaAlteracao telaAlteracao = new TelaAlteracao();

@@ -1,7 +1,5 @@
 package login;
 
-
-
 import java.awt.HeadlessException;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -22,7 +20,7 @@ public class TelaInicio extends JFrame{
             
             setLocationRelativeTo (null);
             setResizable (false);
-            setTitle ("Menu - Fatec");
+            setTitle ("Menu - Fatec São Roque");
             
             setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
             setBounds (500,200,426,212);

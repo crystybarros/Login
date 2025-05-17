@@ -1,10 +1,6 @@
-
 package login;
 
 /* Importação de todas as bibliotecas*/
-
-
-
 
 import java.awt.Font;
 import java.awt.HeadlessException;
@@ -37,7 +33,7 @@ public class TelaCadastro  extends JFrame{
     public TelaCadastro(){
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Cadastro");
+        setTitle("Cadastro - Fatec São Roque");
         setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         setBounds (500, 200, 426, 230);
         
@@ -108,10 +104,10 @@ public class TelaCadastro  extends JFrame{
             //instancio o objeto Usuario
             Usuario usu = new Usuario();
 
-        //Realizando os setters dos dados de tela
-        usu.setNome (txtNome.getText());
-        usu.setUsuario (txtUsuario.getText());
-        usu.setSenha (passSenha.getText());
+            //Realizando os setters dos dados de tela
+            usu.setNome (txtNome.getText());
+            usu.setUsuario (txtUsuario.getText());
+            usu.setSenha (passSenha.getText());
         
         //validações de preechimento dos dados
         if("".equals(usu.getNome())){   //estava getUsuario
@@ -141,9 +137,7 @@ public class TelaCadastro  extends JFrame{
                 mensagemTipo = 0;
                 
             }else {
-                cadastroValido = usu.cadastraUsuario(usu.getNome(), 
-                                                    usu.getUsuario(), 
-                                                    usu.getSenha());
+                cadastroValido = usu.cadastraUsuario(usu.getNome(), usu.getUsuario(), usu.getSenha());
                 
                 if (cadastroValido == true){
                     //Usuário cadatrado na base de dados
@@ -155,8 +149,8 @@ public class TelaCadastro  extends JFrame{
                     mensagemJOption = "Problemas ao inserir o usuário!";
                     mensagemTipo = 0;
                 }
-            }
         }
+    }
         
         //Mostrar a mensagem referida
         JOptionPane.showMessageDialog(null, 
